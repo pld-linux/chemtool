@@ -1,0 +1,35 @@
+--- ./Makefile.in.org	Thu Apr 11 21:41:37 2002
++++ ./Makefile.in	Sat May 11 23:44:20 2002
+@@ -30,22 +30,22 @@
+ 
+ 
+ install: chemtool src-cht/cht
+-	${INSTALL} -d ${prefix}/bin ${mandir}/man1
+-	${INSTALL} chemtool src-cht/cht ${prefix}/bin
+-	$(INSTALL) chemtool.1 ${mandir}/man1
+-	$(INSTALL) cht.1 ${mandir}/man1
++	${INSTALL} -d ${DESTDIR}${prefix}/bin ${DESTDIR}${mandir}/man1
++	${INSTALL} chemtool src-cht/cht ${DESTDIR}${prefix}/bin
++	$(INSTALL) chemtool.1 ${DESTDIR}${mandir}/man1
++	$(INSTALL) cht.1 ${DESTDIR}${mandir}/man1
+ ifdef localedir
+-	for L in `ls locales`; do ${INSTALL} -d ${localedir}/$$L/LC_MESSAGES; ${INSTALL} -m664 locales/$$L/chemtool.mo ${localedir}/$$L/LC_MESSAGES;done
++	for L in `ls locales`; do ${INSTALL} -d ${DESTDIR}${localedir}/$$L/LC_MESSAGES; ${INSTALL} -m664 locales/$$L/chemtool.mo ${DESTDIR}${localedir}/$$L/LC_MESSAGES;done
+ endif
+ ifdef kdedir
+-	${INSTALL} kde/applnk/Graphics/chemtool.desktop ${kdedir}/share/applnk/Graphics 
+-	${INSTALL} kde/mimelnk/application/x-chemtool.desktop ${kdedir}/share/mimelnk/application
+-	${INSTALL} kde/icons/hicolor/32x32/mimetypes/chemtool.png ${kdedir}/share/icons/hicolor/32x32/mimetypes
++	${INSTALL} kde/applnk/Graphics/chemtool.desktop ${DESTDIR}${kdedir}/share/applnk/Graphics 
++	${INSTALL} kde/mimelnk/application/x-chemtool.desktop ${DESTDIR}${kdedir}/share/mimelnk/application
++	${INSTALL} kde/icons/hicolor/32x32/mimetypes/chemtool.png ${DESTDIR}${kdedir}/share/icons/hicolor/32x32/mimetypes
+ endif
+ 
+ ifdef gnomedir
+-	${INSTALL} gnome/mime-types/chemtool.keys gnome/mime-types/chemtool.mime ${gnomedir}/share/mime-types
+-	${INSTALL} gnome/gnome-application-chemtool.png ${gnomedir}/share/pixmaps/mc
++	${INSTALL} gnome/mime-types/chemtool.keys gnome/mime-types/chemtool.mime ${DESTDIR}${gnomedir}/share/mime-types
++	${INSTALL} gnome/gnome-application-chemtool.png ${DESTDIR}${gnomedir}/share/pixmaps/mc
+ endif 
+ clean:
+ 	-${RM} *.o *~ src-cht/*.o src-cht/*~ chemtool src-cht/cht
