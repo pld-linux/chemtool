@@ -31,7 +31,7 @@ bibliotek GTK.
 %patch -p1
 
 %build
-autoconf
+%{__autoconf}
 %configure
 %{__make}
 
