@@ -14,7 +14,6 @@ BuildRequires:	autoconf
 BuildRequires:	gtk+-devel >= 1.2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-
 %description
 Chemtool is a program for drawing organic molecules easily and store
 them as a X bitmap, Xfig or EPS file. It runs under the X Window
@@ -39,7 +38,8 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/{pixmaps/hicolor/32x32/mimetypes,mimelnk/application,mime-info} \
 	$RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install kde/mimelnk/application/x-chemtool.desktop	$RPM_BUILD_ROOT%{_datadir}/mimelnk/application
 install kde/icons/hicolor/32x32/mimetypes/chemtool.png	$RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/32x32/mimetypes
