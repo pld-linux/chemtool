@@ -5,10 +5,10 @@ Version:	1.5
 Release:	2
 License:	GPL
 Group:		X11/Applications/Science
-Source0:	http://www.uni-ulm.de/~s_tvolk/chemtool/src/%{name}-%{version}.tar.gz
+Source0:	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Patch0:		%{name}-DESTDIR.patch
-URL:		http://www.uni-ulm.de/~s_tvolk/chemtool.html
+URL:		http://ruby.chemie.uni-freiburg.de/~martin/chemtool/
 BuildRequires:	autoconf
 BuildRequires:	gtk+-devel >= 1.2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
