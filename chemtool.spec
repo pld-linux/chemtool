@@ -1,14 +1,13 @@
 Summary:	Chemtool - program for 2D drawing organic molecules
 Summary(pl):	Chemtool - program do rysowania 2-wymiarowych cz±steczek organicznych
 Name:		chemtool
-Version:	1.5
-Release:	2
+Version:	1.6
+Release:	1
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/%{name}-%{version}.tar.gz
-# Source0-md5:	093b68e032b2c5611c2f83315764bd40
+# Source0-md5:	1b7a1bde89517ef8a1b4a566bfbd9b3f
 Source1:	%{name}.desktop
-Patch0:		%{name}-DESTDIR.patch
 URL:		http://ruby.chemie.uni-freiburg.de/~martin/chemtool/
 BuildRequires:	autoconf
 BuildRequires:	gtk+-devel >= 1.2.7
@@ -26,7 +25,6 @@ bibliotek GTK.
 
 %prep
 %setup -q
-%patch -p1
 
 %build
 %{__autoconf}
@@ -60,3 +58,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/*.xpm
 %{_applnkdir}/Scientific/Chemistry/*.desktop
+%lang(cs)    %{_datadir}/locale/cs/LC_MESSAGES/chemtool.mo
+%lang(de)    %{_datadir}/locale/de/LC_MESSAGES/chemtool.mo
+%lang(fr)    %{_datadir}/locale/fr/LC_MESSAGES/chemtool.mo
+%lang(pl)    %{_datadir}/locale/pl/LC_MESSAGES/chemtool.mo
+%lang(pt_BR) %{_datadir}/locale/pt_BR/LC_MESSAGES/chemtool.mo
+%lang(ru)    %{_datadir}/locale/ru/LC_MESSAGES/chemtool.mo
+%{_mandir}/man1/*
