@@ -34,13 +34,13 @@ bibliotek GTK+.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/{mimelnk/application,mime-info,mime-types} \
-	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}/hicolor/32x32/mimetypes}
+	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},%{_iconsdir}/hicolor/32x32/mimetypes}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install kde/mimelnk/application/x-chemtool.desktop	$RPM_BUILD_ROOT%{_datadir}/mimelnk/application
-install kde/icons/hicolor/32x32/mimetypes/chemtool.png	$RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/32x32/mimetypes
+install kde/icons/hicolor/32x32/mimetypes/chemtool.png	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/mimetypes
 install gnome/mime-types/* 			$RPM_BUILD_ROOT%{_datadir}/mime-info
 install %{SOURCE1}				$RPM_BUILD_ROOT%{_desktopdir}
 install gnome/gnome-application-chemtool.png %{name}.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
@@ -55,8 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc ChangeLog README TODO examples/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/mimelnk/application/*
-%{_pixmapsdir}/hicolor/32x32/mimetypes/*.png
 %{_datadir}/mime-info/*
+%{_iconsdir}/hicolor/32x32/mimetypes/*.png
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/*.xpm
 %{_desktopdir}/*.desktop
