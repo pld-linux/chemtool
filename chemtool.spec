@@ -13,8 +13,6 @@ BuildRequires:	autoconf
 BuildRequires:	gtk+-devel >= 1.2.7
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 Chemtool is a program for drawing organic molecules easily and store
