@@ -2,7 +2,7 @@ Summary:	Chemtool - program for 2D drawing organic molecules.
 Summary(pl):	Chemtool - program do rysowania 2-wymiarowych cz±steczek organicznych.
 Name:		chemtool
 Version:	1.5
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://www.uni-ulm.de/~s_tvolk/chemtool/src/%{name}-%{version}.tar.gz
@@ -38,14 +38,14 @@ bibliotek GTK.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/{pixmaps/hicolor/32x32/mimetypes,mimelnk/application,mime-info} \
-	$RPM_BUILD_ROOT%{_applnkdir}/Scientific
+	$RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install kde/mimelnk/application/x-chemtool.desktop	$RPM_BUILD_ROOT%{_datadir}/mimelnk/application
 install kde/icons/hicolor/32x32/mimetypes/chemtool.png	$RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/32x32/mimetypes
 install gnome/mime-types/* 			$RPM_BUILD_ROOT%{_datadir}/mime-info
-install %{SOURCE1}				$RPM_BUILD_ROOT%{_applnkdir}/Scientific
+install %{SOURCE1}				$RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
 install gnome/gnome-application-chemtool.png %{name}.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
@@ -60,4 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime-info/*
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/*.xpm
-%{_applnkdir}/Scientific/*.desktop
+%{_applnkdir}/Scientific/Chemistry/*.desktop
