@@ -11,4 +11,5 @@ MultipleArgs=false
 Type=Application
 MimeType=application/x-chemtool;Application
 InitialPreference=2
+Encoding=UTF-8
 # vi: encoding=utf-8
