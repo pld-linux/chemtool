@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/%{name}-%{version}.tar.gz
+# Source0-md5:	093b68e032b2c5611c2f83315764bd40
 Source1:	%{name}.desktop
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://ruby.chemie.uni-freiburg.de/~martin/chemtool/
