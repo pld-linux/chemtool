@@ -37,30 +37,27 @@ bibliotek GTK.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/{pixmaps/hicolor/32x32/mimetypes,mimelnk/application,mime-info}
-install -d $RPM_BUILD_ROOT%{_applnkdir}/Scientific
+install -d $RPM_BUILD_ROOT%{_datadir}/{pixmaps/hicolor/32x32/mimetypes,mimelnk/application,mime-info} \
+	$RPM_BUILD_ROOT%{_applnkdir}/Scientific
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install kde/mimelnk/application/x-chemtool.desktop	$RPM_BUILD_ROOT%{_datadir}/mimelnk/application
-install kde/icons/hicolor/32x32/mimetypes/chemtool.png	$RPM_BUILD_ROOT%{_datadir}/pixmaps/hicolor/32x32/mimetypes
+install kde/icons/hicolor/32x32/mimetypes/chemtool.png	$RPM_BUILD_ROOT%{_pixmapsdir}/hicolor/32x32/mimetypes
 install gnome/mime-types/* 			$RPM_BUILD_ROOT%{_datadir}/mime-info
-install gnome/gnome-application-chemtool.png	$RPM_BUILD_ROOT%{_datadir}/pixmaps
 install %{SOURCE1}				$RPM_BUILD_ROOT%{_applnkdir}/Scientific
-install %{name}.xpm				$RPM_BUILD_ROOT%{_datadir}/pixmaps
-
-gzip -9nf ChangeLog README TODO
+install gnome/gnome-application-chemtool.png %{name}.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz examples/*
+%doc ChangeLog README TODO examples/*
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/mimelnk/application/*
-%{_datadir}/pixmaps/hicolor/32x32/mimetypes/*.png
+%{_pixmapsdir}/hicolor/32x32/mimetypes/*.png
 %{_datadir}/mime-info/*
-%{_datadir}/pixmaps/*.png
-%{_datadir}/pixmaps/*.xpm
+%{_pixmapsdir}/*.png
+%{_pixmapsdir}/*.xpm
 %{_applnkdir}/Scientific/*.desktop
