@@ -33,8 +33,8 @@ bibliotek GTK.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/{pixmaps/hicolor/32x32/mimetypes,mimelnk/application,mime-info} \
-	$RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
+install -d $RPM_BUILD_ROOT%{_datadir}/{mimelnk/application,mime-info,mime-types} \
+	$RPM_BUILD_ROOT{%{_applnkdir}/Scientific/Chemistry,%{_pixmapsdir}/hicolor/32x32/mimetypes}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -45,10 +45,12 @@ install gnome/mime-types/* 			$RPM_BUILD_ROOT%{_datadir}/mime-info
 install %{SOURCE1}				$RPM_BUILD_ROOT%{_applnkdir}/Scientific/Chemistry
 install gnome/gnome-application-chemtool.png %{name}.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
 
+%find_lang %{name}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc ChangeLog README TODO examples/*
 %attr(755,root,root) %{_bindir}/*
@@ -58,10 +60,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_pixmapsdir}/*.png
 %{_pixmapsdir}/*.xpm
 %{_applnkdir}/Scientific/Chemistry/*.desktop
-%lang(cs)    %{_datadir}/locale/cs/LC_MESSAGES/chemtool.mo
-%lang(de)    %{_datadir}/locale/de/LC_MESSAGES/chemtool.mo
-%lang(fr)    %{_datadir}/locale/fr/LC_MESSAGES/chemtool.mo
-%lang(pl)    %{_datadir}/locale/pl/LC_MESSAGES/chemtool.mo
-%lang(pt_BR) %{_datadir}/locale/pt_BR/LC_MESSAGES/chemtool.mo
-%lang(ru)    %{_datadir}/locale/ru/LC_MESSAGES/chemtool.mo
 %{_mandir}/man1/*
