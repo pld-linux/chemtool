@@ -1,0 +1,15 @@
+[Desktop Entry]
+Name=Chemtool
+Comment=Molecules 2D drawing program
+Name[cs_CZ.ISO8859-2]=Chemtool
+Comment[cs_CZ.ISO8859-2]=Editor molekul
+Comment[de_DE.ISO8859-1]=Moleküleditor
+Comment[pl_PL.ISO8859-2]=Edytor molekó³
+Exec=chemtool
+Icon=chemtool.xpm
+Terminal=false
+MultipleArgs=false
+Type=Application
+MimeType=application/x-chemtool;Application
+InitialPreference=2
+
