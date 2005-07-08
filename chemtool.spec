@@ -2,7 +2,7 @@ Summary:	Chemtool - program for 2D drawing organic molecules
 Summary(pl):	Chemtool - program do rysowania 2-wymiarowych cz±steczek organicznych
 Name:		chemtool
 Version:	1.6.6
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/%{name}-%{version}.tar.gz
