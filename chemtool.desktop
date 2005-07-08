@@ -12,4 +12,5 @@ Type=Application
 MimeType=application/x-chemtool
 InitialPreference=2
 Encoding=UTF-8
+Categories=Education;Science;Chemistry;
 # vi: encoding=utf-8
