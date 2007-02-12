@@ -1,5 +1,5 @@
 Summary:	Chemtool - program for 2D drawing organic molecules
-Summary(pl):	Chemtool - program do rysowania 2-wymiarowych cz±steczek organicznych
+Summary(pl.UTF-8):   Chemtool - program do rysowania 2-wymiarowych czÄ…steczek organicznych
 Name:		chemtool
 Version:	1.6.9
 Release:	1
@@ -18,9 +18,9 @@ Chemtool is a program for drawing organic molecules easily and store
 them as a X bitmap, Xfig or EPS file. It runs under the X Window
 System using the GTK+ widget set.
 
-%description -l pl
-Chemtool jest programem do rysowania cz±steczek organicznych i zapisu
-ich jako pliki X-bitmap, Xfig lub EPS. Pracuje pod X Window u¿ywaj±c
+%description -l pl.UTF-8
+Chemtool jest programem do rysowania czÄ…steczek organicznych i zapisu
+ich jako pliki X-bitmap, Xfig lub EPS. Pracuje pod X Window uÅ¼ywajÄ…c
 bibliotek GTK+.
 
 %prep
