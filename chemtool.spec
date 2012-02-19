@@ -9,8 +9,10 @@ Source0:	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/%{name}-%{version}.
 # Source0-md5:	d263b8cf097134e36c5e929e7e77d668
 Source1:	%{name}.desktop
 URL:		http://ruby.chemie.uni-freiburg.de/~martin/chemtool/
-BuildRequires:	autoconf
-BuildRequires:	gtk+-devel >= 1.2.7
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	gtk+2-devel >= 1:2.0
+BuildRequires:	pkgconfig
+BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -51,11 +53,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc ChangeLog README TODO examples/*
-%attr(755,root,root) %{_bindir}/*
-%{_datadir}/mimelnk/application/*
-%{_iconsdir}/hicolor/32x32/mimetypes/*.png
-%{_pixmapsdir}/*.png
-%{_pixmapsdir}/*.xpm
-%{_desktopdir}/*.desktop
-%{_mandir}/man1/*
+%doc ChangeLog NEWS README TODO examples/{Neu2,*.{cht,mol,pdb}}
+%attr(755,root,root) %{_bindir}/chemtool
+%attr(755,root,root) %{_bindir}/chemtoolbg
+%attr(755,root,root) %{_bindir}/cht
+%{_datadir}/mimelnk/application/x-chemtool.desktop
+%{_iconsdir}/hicolor/32x32/mimetypes/chemtool.png
+%{_pixmapsdir}/gnome-application-chemtool.png
+%{_pixmapsdir}/chemtool.xpm
+%{_desktopdir}/chemtool.desktop
+%{_mandir}/man1/chemtool.1*
+%{_mandir}/man1/cht.1*
