@@ -1,16 +1,22 @@
+#
+# Conditional build:
+%bcond_without	emf	# Enhanced MetaFile output support
+#
 Summary:	Chemtool - program for 2D drawing organic molecules
 Summary(pl.UTF-8):	Chemtool - program do rysowania 2-wymiarowych cząsteczek organicznych
 Name:		chemtool
-Version:	1.6.13
+Version:	1.6.14
 Release:	1
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/%{name}-%{version}.tar.gz
-# Source0-md5:	d263b8cf097134e36c5e929e7e77d668
+# Source0-md5:	3a97680f0abe1327af1f0072551a68e2
 Source1:	%{name}.desktop
 URL:		http://ruby.chemie.uni-freiburg.de/~martin/chemtool/
 BuildRequires:	autoconf >= 2.50
+BuildRequires:	gettext-devel >= 0.14.1
 BuildRequires:	gtk+2-devel >= 1:2.0
+%{?with_emf:BuildRequires:	libEMF-devel}
 BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libX11-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -30,7 +36,8 @@ bibliotek GTK+.
 
 %build
 %{__autoconf}
-%configure
+%configure \
+	%{?with_emf:--enable-emf}
 %{__make}
 
 %install
