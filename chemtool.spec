@@ -14,7 +14,7 @@ Source0:	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/%{name}-%{version}.
 Source1:	%{name}.desktop
 URL:		http://ruby.chemie.uni-freiburg.de/~martin/chemtool/
 BuildRequires:	autoconf >= 2.50
-BuildRequires:	gettext-devel >= 0.14.1
+BuildRequires:	gettext-tools >= 0.14.1
 BuildRequires:	gtk+2-devel >= 1:2.0
 %{?with_emf:BuildRequires:	libEMF-devel}
 BuildRequires:	pkgconfig
