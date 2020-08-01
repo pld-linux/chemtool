@@ -6,12 +6,12 @@ Summary:	Chemtool - program for 2D drawing organic molecules
 Summary(pl.UTF-8):	Chemtool - program do rysowania 2-wymiarowych cząsteczek organicznych
 Name:		chemtool
 Version:	1.6.14
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Science
 Source0:	http://ruby.chemie.uni-freiburg.de/~martin/chemtool/%{name}-%{version}.tar.gz
 # Source0-md5:	3a97680f0abe1327af1f0072551a68e2
-Source1:	%{name}.desktop
+Patch0:		gcc10.patch
 URL:		http://ruby.chemie.uni-freiburg.de/~martin/chemtool/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	gettext-tools >= 0.14.1
@@ -33,6 +33,7 @@ bibliotek GTK+.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__autoconf}
@@ -42,16 +43,14 @@ bibliotek GTK+.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_datadir}/{mimelnk/application,mime-info,mime-types} \
-	$RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},%{_iconsdir}/hicolor/32x32/mimetypes}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir},%{_iconsdir}/hicolor/32x32/mimetypes}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install kde/mimelnk/application/x-chemtool.desktop	$RPM_BUILD_ROOT%{_datadir}/mimelnk/application
-install kde/icons/hicolor/32x32/mimetypes/chemtool.png	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/mimetypes
-install %{SOURCE1}				$RPM_BUILD_ROOT%{_desktopdir}
+install %{name}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 install gnome/gnome-application-chemtool.png %{name}.xpm $RPM_BUILD_ROOT%{_pixmapsdir}
+install kde/icons/hicolor/32x32/mimetypes/chemtool.png	$RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/mimetypes
 
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/pt{_PT,}
 
@@ -66,7 +65,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/chemtool
 %attr(755,root,root) %{_bindir}/chemtoolbg
 %attr(755,root,root) %{_bindir}/cht
-%{_datadir}/mimelnk/application/x-chemtool.desktop
 %{_iconsdir}/hicolor/32x32/mimetypes/chemtool.png
 %{_pixmapsdir}/gnome-application-chemtool.png
 %{_pixmapsdir}/chemtool.xpm
